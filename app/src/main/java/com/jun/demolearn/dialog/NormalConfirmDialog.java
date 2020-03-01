@@ -75,7 +75,7 @@ public class NormalConfirmDialog extends Dialog {
             btn_confirm = view.findViewById(R.id.btn_confirm);
         }
 
-        
+
         private NormalConfirmDialog.OnOKClickListener oKListener;
         /**
          * 确定按钮点击监听
