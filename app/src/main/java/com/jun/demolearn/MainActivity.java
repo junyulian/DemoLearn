@@ -92,18 +92,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void showNormalConfirmDialog(){
-        NormalConfirmDialog dialog = new NormalConfirmDialog(MainActivity.this,"hello","new world want to see you again");
-        dialog.setOnCancelClickListener(new NormalConfirmDialog.OnCancelClickListener() {
-            @Override
-            public void onCancelClick() {
-                dialog.dismiss();
-            }
-        }).setOnOKClickListener(new NormalConfirmDialog.OnOKClickListener() {
+        NormalConfirmDialog.Builder builder = new NormalConfirmDialog.Builder(this);
+        NormalConfirmDialog dialog = builder.create();
+        builder.setTitle("world");
+        builder.setMessage("this is a new world, pls try");
+        builder.setOnOKClickListener(new NormalConfirmDialog.OnOKClickListener() {
             @Override
             public void onOkClick() {
-                dialog.dismiss();
+               dialog.dismiss();
             }
-        }).setCancelable(false);
+        });
         dialog.show();
     }
 
