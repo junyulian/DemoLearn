@@ -3,9 +3,13 @@ package com.jun.demolearn;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
+import com.jun.demolearn.dialog.NormalConfirmDialog;
 import com.jun.demolearn.dialog.NormalConfirmFragmentDialog;
+import com.jun.demolearn.dialog.NormalConfirmPopDialog;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -23,20 +27,75 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_fragment_dialog})
+    @OnClick({R.id.btn_fragment_dialog,R.id.btn_normal_dialog,R.id.btn_normal_pop_dialog})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_fragment_dialog:
                 showNormalConfirmFragmentDialog();
                 break;
+            case R.id.btn_normal_dialog:
+                showNormalConfirmDialog();
+                break;
+            case R.id.btn_normal_pop_dialog:
+                showNormalPopDialog();
             default:
                 break;
         }
     }
 
+    private void showNormalPopDialog(){
+
+        View parentView = LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_main, null);
+        NormalConfirmPopDialog dialog = new NormalConfirmPopDialog(MainActivity.this);
+        dialog.setOnOKClickListener(new NormalConfirmPopDialog.OnOKClickListener() {
+            @Override
+            public void onOkClick() {
+                dialog.dismiss();
+            }
+        }).setOnCancelClickListener(new NormalConfirmPopDialog.OnCancelClickListener() {
+            @Override
+            public void onCancelClick() {
+                dialog.dismiss();
+            }
+        }).setTitle("zy").setMsg("this is a msg");
+
+        dialog.showAtCenter(parentView);
+    }
+
+
+
+    private void showNormalConfirmDialog(){
+        NormalConfirmDialog dialog = new NormalConfirmDialog(MainActivity.this,"hello","new world want to see you again");
+        dialog.setOnCancelClickListener(new NormalConfirmDialog.OnCancelClickListener() {
+            @Override
+            public void onCancelClick() {
+                dialog.dismiss();
+            }
+        }).setOnOKClickListener(new NormalConfirmDialog.OnOKClickListener() {
+            @Override
+            public void onOkClick() {
+                dialog.dismiss();
+            }
+        }).setCancelable(false);
+        dialog.show();
+    }
+
     private void showNormalConfirmFragmentDialog(){
 
-        NormalConfirmFragmentDialog dialog = new NormalConfirmFragmentDialog();
+        NormalConfirmFragmentDialog dialog = NormalConfirmFragmentDialog.newInstance();
+        dialog.setOKClickListener(new NormalConfirmFragmentDialog.OnOKClickListener() {
+            @Override
+            public void onOkClick() {
+                dialog.dismiss();
+            }
+        }).setCancelClickListener(new NormalConfirmFragmentDialog.OnCancelClickListener(){
+
+            @Override
+            public void onCancelClick() {
+                dialog.dismiss();
+            }
+        }).setCancelable(true);
+
         dialog.show(getSupportFragmentManager(),"first");
 
     }
