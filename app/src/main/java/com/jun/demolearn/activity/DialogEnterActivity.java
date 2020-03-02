@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import com.jun.demolearn.R;
 import com.jun.demolearn.base.BaseActivity;
 import com.jun.demolearn.dialog.NormalConfirmActivityDialog;
