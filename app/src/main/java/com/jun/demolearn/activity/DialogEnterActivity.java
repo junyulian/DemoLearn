@@ -7,6 +7,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.jun.demolearn.R;
+import com.jun.demolearn.base.BaseActivity;
 import com.jun.demolearn.dialog.NormalConfirmActivityDialog;
 import com.jun.demolearn.dialog.NormalConfirmDefDialog;
 import com.jun.demolearn.dialog.NormalConfirmDialog;
@@ -16,7 +17,7 @@ import com.jun.demolearn.dialog.NormalConfirmPopDialog;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class DialogEnterActivity extends AppCompatActivity {
+public class DialogEnterActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
