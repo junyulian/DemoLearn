@@ -6,6 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * 基础activity 设置所有app一些公用的方法
+ */
 public class BaseActivity extends AppCompatActivity {
 
     @Override

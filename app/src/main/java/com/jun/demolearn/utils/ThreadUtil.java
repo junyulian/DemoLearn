@@ -4,7 +4,9 @@ import android.os.Handler;
 
 import com.jun.demolearn.App;
 
-
+/**
+ * 线程处理工具类
+ */
 public class ThreadUtil {
 
     /**

@@ -35,7 +35,6 @@ public class AppConfig {
     public void init(Application app){
         this.app = app;
         initActivityLifecycleManage();//activity 生命周期监听
-
     }
 
     /**

@@ -19,6 +19,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ *  普通确认对话框
+ *  完全自定义对话框，
+ *  内部创建dialog对象，setContentView实现
+ */
 public class NormalConfirmDefDialog {
 
     private Context context;

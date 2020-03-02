@@ -21,6 +21,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * 普通确认对话框
+ * 继承DialogFragment实现
+ */
 public class NormalConfirmFragmentDialog extends DialogFragment {
 
     @BindView(R.id.tv_title)

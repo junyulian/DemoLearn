@@ -16,6 +16,9 @@ import com.jun.demolearn.dialog.NormalConfirmPopDialog;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * 各种对话框的入口 activity
+ */
 public class DialogEnterActivity extends BaseActivity {
 
     @Override

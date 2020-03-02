@@ -4,6 +4,9 @@ import android.util.Log;
 
 import com.jun.utils.BuildConfig;
 
+/**
+ * 在调试模式 和 日志级别小于设置级别的 日志可输出
+ */
 public class LogUtil {
 
     /** 日志输出级别NONE */

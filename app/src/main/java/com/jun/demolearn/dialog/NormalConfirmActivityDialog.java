@@ -20,6 +20,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ *  普通确认对话框
+ *  activity实现
+ */
 public class NormalConfirmActivityDialog extends AppCompatActivity {
 
     @BindView(R.id.tv_title)

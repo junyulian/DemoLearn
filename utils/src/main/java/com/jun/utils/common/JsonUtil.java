@@ -12,6 +12,9 @@ import java.lang.reflect.Type;
 
 import bean.PushInfoBean;
 
+/**
+ * json对象和字符串转换工具
+ */
 public class JsonUtil {
 
     /**

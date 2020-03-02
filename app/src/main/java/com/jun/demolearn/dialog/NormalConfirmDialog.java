@@ -17,6 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.jun.demolearn.R;
 
+/**
+ *  普通确认对话框
+ *  继承dialog,内部类构造方法创建dialog对象，setContentView实现
+ */
 public class NormalConfirmDialog extends Dialog {
 
     public NormalConfirmDialog(@NonNull Context context) {
