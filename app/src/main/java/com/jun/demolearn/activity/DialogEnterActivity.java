@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 
 import com.jun.demolearn.R;
 import com.jun.demolearn.base.BaseActivity;
@@ -12,7 +13,10 @@ import com.jun.demolearn.dialog.NormalConfirmDefDialog;
 import com.jun.demolearn.dialog.NormalConfirmDialog;
 import com.jun.demolearn.dialog.NormalConfirmFragmentDialog;
 import com.jun.demolearn.dialog.NormalConfirmPopDialog;
+import com.jun.demolearn.dialog.NormalInputDialog;
+import com.jun.utils.common.LogUtil;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -20,6 +24,9 @@ import butterknife.OnClick;
  * 各种对话框的入口 activity
  */
 public class DialogEnterActivity extends BaseActivity {
+
+    @BindView(R.id.tv_data)
+    TextView tv_data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +38,7 @@ public class DialogEnterActivity extends BaseActivity {
 
     @OnClick({R.id.btn_fragment_dialog,R.id.btn_normal_dialog,
             R.id.btn_normal_pop_dialog,R.id.btn_normal_define_dialog,
-            R.id.btn_normal_activity_dialog})
+            R.id.btn_normal_activity_dialog,R.id.btn_normal_input_dialog})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_fragment_dialog:
@@ -49,14 +56,45 @@ public class DialogEnterActivity extends BaseActivity {
             case R.id.btn_normal_activity_dialog:
                 showActivityDialog();
                 break;
+            case R.id.btn_normal_input_dialog:
+                showNormalInputDialog();
+                break;
             default:
                 break;
         }
     }
 
+    private void showNormalInputDialog(){
+//        NormalInputDialog dialog = new NormalInputDialog();
+//        dialog.show(getSupportFragmentManager(),"ha");
+        NormalInputDialog.Builder builder = new NormalInputDialog.Builder();
+        builder.setDes("吴王在此");
+        builder.setHint("this is your place");
+        builder.setContent("如果卧底是这样");
+        builder.setCancelText("赏花");
+
+        NormalInputDialog dialog = builder.creat();
+        dialog.setOnNegativeClickListener(new NormalInputDialog.OnNegativeClickListener() {
+            @Override
+            public void click() {
+                LogUtil.e("-------取消");
+
+            }
+        }).setOnPositiveClickListener(new NormalInputDialog.OnPositiveClickListener() {
+            @Override
+            public void click(String content) {
+                LogUtil.e("-------确认:"+content);
+                tv_data.setText(content);
+                dialog.dismiss();
+            }
+        });
+        dialog.show(getSupportFragmentManager(),"this");
+    }
+
     private void showActivityDialog() {
-        Intent intent = new Intent(this, NormalConfirmActivityDialog.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, NormalConfirmActivityDialog.class);
+//        startActivity(intent);
+          moveTo(NormalConfirmActivityDialog.class);
     }
 
     private void showDefineDialog(){

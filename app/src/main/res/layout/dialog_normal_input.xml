@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_normal_confirm_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            android:textColor="@android:color/black"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:text="提示"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:maxWidth="120dp"
+                android:layout_marginRight="10dp"
+                android:lines="1"
+                android:ellipsize="end"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray"
+                android:text="怕是设置:"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/et_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:background="@drawable/dialog_normal_input_shape"
+                android:lines="1"
+                android:padding="5dp"
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:hint="请输入内容"/>
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="#c5c5c5"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/dialog_normal_confirm_cancel_selector"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@color/dialog_normal_confirm_btn_text_selector"
+                android:textSize="15sp"
+                android:letterSpacing="0.3"
+                android:text="取消"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5"/>
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/dialog_normal_confirm_ok_selector"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@color/dialog_normal_confirm_btn_text_selector"
+                android:textSize="15sp"
+                android:letterSpacing="0.3"
+                android:text="确定"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

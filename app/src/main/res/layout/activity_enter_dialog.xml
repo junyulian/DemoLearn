@@ -7,6 +7,16 @@
     android:background="#dddddd"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/tv_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="数据展示"/>
+
     <Button
         android:id="@+id/btn_fragment_dialog"
         android:layout_width="wrap_content"
@@ -70,6 +80,19 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:text="NormalActivityDialog"/>
+
+    <Button
+        android:id="@+id/btn_normal_input_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_normal_activity_dialog"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="NormalInputDialog"/>
 
 
 
