@@ -15,6 +15,8 @@ import com.jun.dialog.NormalConfirmDialog;
 import com.jun.dialog.NormalConfirmFragmentDialog;
 import com.jun.dialog.NormalConfirmPopDialog;
 import com.jun.dialog.NormalInputDialog;
+import com.jun.dialog.TopDialog;
+import com.jun.dialog.util.BottomBialog;
 import com.jun.utils.common.LogUtil;
 
 import butterknife.BindView;
@@ -40,7 +42,8 @@ public class DialogEnterActivity extends BaseActivity {
     @OnClick({R.id.btn_fragment_dialog,R.id.btn_normal_dialog,
             R.id.btn_normal_pop_dialog,R.id.btn_normal_define_dialog,
             R.id.btn_normal_activity_dialog,R.id.btn_normal_input_dialog,
-            R.id.btn_push_alarm_dialog})
+            R.id.btn_push_alarm_dialog,R.id.btn_top_dialog,
+            R.id.btn_bottom_dialog})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_fragment_dialog:
@@ -63,9 +66,30 @@ public class DialogEnterActivity extends BaseActivity {
                 break;
             case R.id.btn_push_alarm_dialog:
                 showPushAlarmDialog();
+                break;
+            case R.id.btn_top_dialog:
+                showTopDialog();
+                break;
+            case R.id.btn_bottom_dialog:
+                showBottomDialog();
+                break;
             default:
                 break;
         }
+    }
+
+    private void showBottomDialog() {
+        BottomBialog.Builder builder = new BottomBialog.Builder();
+        builder.setContent("暮然回首,那人却在灯火阑珊处");
+        BottomBialog dialog = builder.create();
+        dialog.show(getSupportFragmentManager(),"");
+    }
+
+    private void showTopDialog() {
+        TopDialog.Builder builder = new TopDialog.Builder();
+        builder.setContent("开启新的世界");
+        TopDialog dialog = builder.create();
+        dialog.show(getSupportFragmentManager(),"");
     }
 
     private void showPushAlarmDialog() {

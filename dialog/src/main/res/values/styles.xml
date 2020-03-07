@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- 顶部弹框 弹出动画-->
+    <style name="dialog_top_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_top_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_top_exit</item>
+    </style>
+    <!-- 底部弹框 弹出动画-->
+    <style name="dialog_bottom_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_bottom_enter</item>
+        <item name="android:windowExitAnimation">@anim/dialog_bottom_exit</item>
+    </style>
+
+
+</resources>
