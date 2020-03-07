@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.jun.demolearn.R;
 import com.jun.demolearn.base.BaseActivity;
+import com.jun.dialog.AlarmInfoDialog;
 import com.jun.dialog.NormalConfirmActivityDialog;
 import com.jun.dialog.NormalConfirmDefDialog;
 import com.jun.dialog.NormalConfirmDialog;
@@ -38,7 +39,8 @@ public class DialogEnterActivity extends BaseActivity {
 
     @OnClick({R.id.btn_fragment_dialog,R.id.btn_normal_dialog,
             R.id.btn_normal_pop_dialog,R.id.btn_normal_define_dialog,
-            R.id.btn_normal_activity_dialog,R.id.btn_normal_input_dialog})
+            R.id.btn_normal_activity_dialog,R.id.btn_normal_input_dialog,
+            R.id.btn_push_alarm_dialog})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_fragment_dialog:
@@ -59,9 +61,22 @@ public class DialogEnterActivity extends BaseActivity {
             case R.id.btn_normal_input_dialog:
                 showNormalInputDialog();
                 break;
+            case R.id.btn_push_alarm_dialog:
+                showPushAlarmDialog();
             default:
                 break;
         }
+    }
+
+    private void showPushAlarmDialog() {
+        String alarmInfo =  "{\"gpsStatus\":false,\"messageTypeId\":1,\"deviceAlarmId\":675899349,\"imei\":\"866551032760683\",\"deviceName\":\"760683-有线 南汇工程 全顺\",\"alarmTypeBean\":{\"alarmTypeId\":12,\"name\":\"超速报警\"},\"alarmTime\":1582793180000,\"isRead\":false,\"reminderTime\":60}";
+
+        Bundle bundle = new Bundle();
+        bundle.putString("alarmInfo",alarmInfo);
+        AlarmInfoDialog dialog = AlarmInfoDialog.newInstance();
+        dialog.setArguments(bundle);
+        dialog.show(getSupportFragmentManager(),"alarm");
+
     }
 
     private void showNormalInputDialog(){

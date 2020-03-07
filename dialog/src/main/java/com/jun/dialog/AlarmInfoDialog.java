@@ -16,6 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+import com.jun.dialog.bean.PushInfoBean;
+import com.jun.dialog.util.JsonUtil;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -48,12 +51,12 @@ public class AlarmInfoDialog extends AppCompatDialogFragment {
         try {
             if(bundle != null){
                 String alarmInfo = bundle.getString("alarmInfo");
-//                PushInfoBean bean = CommonUtils.getObjFromJsonStr(alarmInfo,PushInfoBean.class);
-//                tv_alarm_name.setText(CommonUtils.getString(getContext(), AlarmUtils.getAlarmStr(bean.getAlarmTypeBean().getAlarmTypeId())));
-//                tv_device_name.setText(bean.getDeviceName());
-//                tv_alarm_time.setText(CommonUtils.getDateStr(bean.getAlarmTime()));//TODO
-//                tv_device_imei.setText(bean.getImei());
-//                tv_device_addr.setText(bean.getAddress());
+                PushInfoBean bean = JsonUtil.fromJsonStr(alarmInfo,PushInfoBean.class);
+                tv_alarm_name.setText(bean.getAlarmTypeBean().getName());
+                tv_device_name.setText(bean.getDeviceName());
+                tv_alarm_time.setText("2020-03-04 17:00");//TODO
+                tv_device_imei.setText(bean.getImei());
+                tv_device_addr.setText(bean.getAddress());
             }
         }catch (Exception e){
             e.printStackTrace();

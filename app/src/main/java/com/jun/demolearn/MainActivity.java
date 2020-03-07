@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.jun.demolearn.activity.DialogEnterActivity;
+import com.jun.demolearn.activity.MediaActivity;
 import com.jun.demolearn.base.BaseActivity;
 
 
@@ -24,11 +25,14 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_dialog})
+    @OnClick({R.id.btn_dialog,R.id.btn_media})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_dialog:
                 moveTo(DialogEnterActivity.class);
+                break;
+            case R.id.btn_media:
+                moveTo(MediaActivity.class);
                 break;
             default:
                 break;

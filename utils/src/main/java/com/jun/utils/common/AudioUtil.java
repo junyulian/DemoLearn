@@ -16,6 +16,29 @@ import java.lang.reflect.Field;
  */
 public class AudioUtil {
 
+    private  Ringtone mRingtone;
+
+
+    //单例
+    //私有化构造函数
+    private AudioUtil(){}
+    //定义一个静态枚举类
+    private enum SingleEnum{
+        INSTANCE;//创建一个枚举对象，该对象天生为单例
+        private AudioUtil util;
+        //私有化枚举的构造函数
+        private SingleEnum(){
+            util = new AudioUtil();
+        }
+        public AudioUtil getInstance(){
+            return util;
+        }
+    }
+    //对外暴露一个获取AudioUtil对象的静态方法
+    public static AudioUtil getInstance(){
+        return SingleEnum.INSTANCE.getInstance();
+    }
+
 
     /**
      * 监听系统模式播放音频
@@ -24,8 +47,8 @@ public class AudioUtil {
      * @param rawId
      * @return
      */
-    public static Ringtone playAudio(Context context,int rawId){
-        return playAudio(context,rawId,false);
+    public  void playAudio(Context context,int rawId){
+        playAudio(context,rawId,false);
     }
 
     /**
@@ -36,18 +59,18 @@ public class AudioUtil {
      * @param isLoop 循环播放
      * @return
      */
-    public static Ringtone playAudio(Context context,int rawId,boolean isLoop){
+    public  void playAudio(Context context,int rawId,boolean isLoop){
         AudioManager audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
         final int ringerMode = audioManager.getRingerMode();
         switch (ringerMode){
             case AudioManager.RINGER_MODE_NORMAL:
-                return playSound(context,rawId,isLoop);
+                playSound(context,rawId,isLoop);
+                break;
             case AudioManager.RINGER_MODE_SILENT:
             case AudioManager.RINGER_MODE_VIBRATE:
-                return null;
+                break;
 
         }
-        return null;
     }
 
 
@@ -57,16 +80,15 @@ public class AudioUtil {
      * @param rawId
      * @return
      */
-    public static Ringtone playSound(Context context,int rawId){
-        return playSound(context,rawId,false);
+    public  void playSound(Context context,int rawId){
+        playSound(context,rawId,false);
     }
 
     /**
      * 停止播放  非循环播放的音频
-     * @param ringtone
      */
-    public static void stopSound(Ringtone ringtone){
-        stopSound(ringtone,false);
+    public  void stopSound(){
+        stopSound(false);
     }
 
     /**
@@ -76,10 +98,13 @@ public class AudioUtil {
      * @param isLoop 是否循环播放
      * @return
      */
-    public static Ringtone playSound(Context context,int rawId, boolean isLoop){
+    public  void playSound(Context context,int rawId, boolean isLoop){
         String uri = "android.resource://" + context.getPackageName() + "/" +rawId;
         Uri no = Uri.parse(uri);
-        Ringtone mRingtone = RingtoneManager.getRingtone(context.getApplicationContext(), no);
+        if(mRingtone != null){
+            stopSound(true);
+        }
+        mRingtone = RingtoneManager.getRingtone(context.getApplicationContext(), no);
         if(isLoop){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                 mRingtone.setLooping(true);//28 及以上直接循环
@@ -96,32 +121,30 @@ public class AudioUtil {
             }
         }
         mRingtone.play();
-        return mRingtone;
     }
 
     /**
      * 停止播放
-     * @param ringtone 播放器
      * @param isLoop  是否循环
      */
-    public static void stopSound(Ringtone ringtone,boolean isLoop){
-        if(ringtone != null && ringtone.isPlaying()){
+    public  void stopSound(boolean isLoop){
+        if(mRingtone != null && mRingtone.isPlaying()){
             if(isLoop){
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                    ringtone.setLooping(false);//28 及以上直接循环
+                    mRingtone.setLooping(false);//28 及以上直接循环
                 } else{
                     Class<Ringtone> clazz = Ringtone.class;
                     try {
                         Field audio = clazz.getDeclaredField("mLocalPlayer");
                         audio.setAccessible(true);
-                        MediaPlayer target = (MediaPlayer) audio.get(ringtone);
+                        MediaPlayer target = (MediaPlayer) audio.get(mRingtone);
                         target.setLooping(false);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             }
-            ringtone.stop();
+            mRingtone.stop();
         }
     }
 
