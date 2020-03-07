@@ -1,8 +1,12 @@
 package com.jun.utils.common;
 
+import android.app.Activity;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Application注册activity的生命周期监听回调方法registerActivityLifecycleCallbacks
@@ -50,5 +54,41 @@ public class ActivityManager {
         }
         sCurrentActivityWeakRef = new WeakReference<AppCompatActivity>(activity);
     }
+
+    /**
+     * 在前台activity的集合, 集合元素大于0， 说是APP在前台展示
+     */
+    private List<Activity> actList = new ArrayList<>();
+    /**
+     * activity生命周期管理，activity resume设置
+     * @param act
+     */
+    public void resumeActivity(Activity act) {
+        if(!actList.contains(act)){
+            actList.add(act);
+        }
+    }
+
+    /**
+     * activity生命周期管理  activity stop设置
+     * @param act
+     */
+    public void stopActivity(Activity act) {
+        if(actList.contains(act)){
+            actList.remove(act);
+        }
+    }
+
+    /**
+     * APP是否在前台展示
+     * @return
+     */
+    public boolean appIsForground(){
+        if(actList.size()>0){
+            return true;
+        }
+        return false;
+    }
+
 
 }

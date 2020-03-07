@@ -58,6 +58,8 @@ public class AppConfig {
                     AppCompatActivity appCompatActivity = (AppCompatActivity)activity;
                     ActivityManager.getInstance().setCurrentActivity(appCompatActivity);
                 }
+                //activity可见
+                ActivityManager.getInstance().resumeActivity(activity);
             }
 
             @Override
@@ -67,7 +69,8 @@ public class AppConfig {
 
             @Override
             public void onActivityStopped(@NonNull Activity activity) {
-
+                //activity停止
+                ActivityManager.getInstance().stopActivity(activity);
             }
 
             @Override

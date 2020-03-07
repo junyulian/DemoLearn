@@ -68,10 +68,10 @@ public class DialogEnterActivity extends BaseActivity {
 //        NormalInputDialog dialog = new NormalInputDialog();
 //        dialog.show(getSupportFragmentManager(),"ha");
         NormalInputDialog.Builder builder = new NormalInputDialog.Builder();
-        builder.setDes("吴王在此");
+        builder.setDes("住址");
         builder.setHint("this is your place");
-        builder.setContent("如果卧底是这样");
-        builder.setCancelText("赏花");
+        builder.setContent("北海不归客");
+        builder.setCancelText("取消");
 
         NormalInputDialog dialog = builder.creat();
         dialog.setOnNegativeClickListener(new NormalInputDialog.OnNegativeClickListener() {
