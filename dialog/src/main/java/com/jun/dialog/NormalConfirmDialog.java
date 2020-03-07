@@ -1,4 +1,4 @@
-package com.jun.demolearn.dialog;
+package com.jun.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -13,9 +13,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.jun.demolearn.R;
 
 /**
  *  普通确认对话框

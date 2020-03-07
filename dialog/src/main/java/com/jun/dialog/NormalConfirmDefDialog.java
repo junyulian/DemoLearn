@@ -1,4 +1,4 @@
-package com.jun.demolearn.dialog;
+package com.jun.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
-
-import com.jun.demolearn.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,10 +27,10 @@ public class NormalConfirmDefDialog {
     private Context context;
     private Dialog dialog;
 
-    @BindView(R.id.tv_title)
+    @BindView(R2.id.tv_title)
     TextView tv_title;
 
-    @BindView(R.id.tv_msg)
+    @BindView(R2.id.tv_msg)
     TextView tv_msg;
 
     public NormalConfirmDefDialog(Context context){
@@ -116,21 +114,17 @@ public class NormalConfirmDefDialog {
      * 取消和确定按钮点击事件
      * @param view
      */
-    @OnClick({R.id.btn_cancel,R.id.btn_confirm})
+    @OnClick({R2.id.btn_cancel,R2.id.btn_confirm})
     public void click(View view){
-        switch (view.getId()){
-            case R.id.btn_cancel:
-                if(cancelListener != null){
-                    cancelListener.onCancelClick();
-                }
-                break;
-            case R.id.btn_confirm:
-                if(oKListener != null){
-                    oKListener.onOkClick();
-                }
-                break;
-            default:
-                break;
+        int id = view.getId();
+        if (id == R.id.btn_cancel) {
+            if (cancelListener != null) {
+                cancelListener.onCancelClick();
+            }
+        } else if (id == R.id.btn_confirm) {
+            if (oKListener != null) {
+                oKListener.onOkClick();
+            }
         }
     }
 

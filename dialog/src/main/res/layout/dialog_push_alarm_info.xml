@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="ltr">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_dialog_alarm_info_bg"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:src="@mipmap/alarm_icon"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_device_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#333333"
+                    android:textSize="15sp"
+                    android:text="一个比较长的设备名"/>
+
+                <TextView
+                    android:id="@+id/tv_alarm_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="#A0AEBB"
+                    android:textSize="12sp"
+                    android:text="2020-02-11 12:02:03"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#838A93"
+                    android:textSize="14sp"
+                    android:text="IMEI"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#838A93"
+                    android:textSize="14sp"
+                    android:text=":"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_device_imei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:textColor="#838A93"
+                android:textSize="14sp"
+                android:text="824342352534646575754"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="48dp"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:textColor="#838A93"
+                    android:textSize="14sp"
+                    android:text="地址"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#838A93"
+                    android:textSize="14sp"
+                    android:text=":"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_device_addr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:textColor="#838A93"
+                android:textSize="14sp"
+                android:text="beijing chang an jie"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_known"
+            android:layout_width="150dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_dialog_alarm_btn_bg"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:lines="1"
+            android:ellipsize="end"
+            android:text="我知道了"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_alarm_name"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_dialog_alarm_type_bg"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:ellipsize="end"
+        android:text="震动报警"/>
+
+    <ImageButton
+        android:id="@+id/ib_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingTop="30dp"
+        android:paddingRight="15dp"
+        android:background="@android:color/transparent"
+        android:src="@mipmap/alarm_clear"/>
+
+</RelativeLayout>

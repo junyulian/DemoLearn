@@ -8,12 +8,12 @@ import android.widget.TextView;
 
 import com.jun.demolearn.R;
 import com.jun.demolearn.base.BaseActivity;
-import com.jun.demolearn.dialog.NormalConfirmActivityDialog;
-import com.jun.demolearn.dialog.NormalConfirmDefDialog;
-import com.jun.demolearn.dialog.NormalConfirmDialog;
-import com.jun.demolearn.dialog.NormalConfirmFragmentDialog;
-import com.jun.demolearn.dialog.NormalConfirmPopDialog;
-import com.jun.demolearn.dialog.NormalInputDialog;
+import com.jun.dialog.NormalConfirmActivityDialog;
+import com.jun.dialog.NormalConfirmDefDialog;
+import com.jun.dialog.NormalConfirmDialog;
+import com.jun.dialog.NormalConfirmFragmentDialog;
+import com.jun.dialog.NormalConfirmPopDialog;
+import com.jun.dialog.NormalInputDialog;
 import com.jun.utils.common.LogUtil;
 
 import butterknife.BindView;

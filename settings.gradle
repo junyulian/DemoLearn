@@ -1,2 +1,2 @@
-include ':app', ':utils'
+include ':app', ':utils', ':dialog'
 rootProject.name='DemoLearn'

@@ -1,4 +1,4 @@
-package com.jun.demolearn.dialog;
+package com.jun.dialog;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -17,8 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.jun.demolearn.R;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -33,19 +31,19 @@ public class NormalInputDialog extends DialogFragment {
     public static final String POSITIVE = "positive";
     public static final String OUTSIDEENABLE = "outClose";
 
-    @BindView(R.id.tv_title)
+    @BindView(R2.id.tv_title)
     TextView tv_title;
 
-    @BindView(R.id.tv_des)
+    @BindView(R2.id.tv_des)
     TextView tv_des;
 
-    @BindView(R.id.et_content)
+    @BindView(R2.id.et_content)
     EditText et_content;
 
-    @BindView(R.id.btn_cancel)
+    @BindView(R2.id.btn_cancel)
     Button btn_cancel;
 
-    @BindView(R.id.btn_confirm)
+    @BindView(R2.id.btn_confirm)
     Button btn_confirm;
 
     @Nullable
@@ -234,20 +232,18 @@ public class NormalInputDialog extends DialogFragment {
     }
 
 
-    @OnClick({R.id.btn_confirm,R.id.btn_cancel})
+    @OnClick({R2.id.btn_confirm,R2.id.btn_cancel})
     public void click(View view){
-        switch (view.getId()){
-            case R.id.btn_confirm:
-                if(positiveClickListener != null){
-                    String content = et_content.getText().toString().trim();
-                    positiveClickListener.click(content);
-                }
-                break;
-            case R.id.btn_cancel:
-                if(negativeClickListener != null){
-                    negativeClickListener.click();
-                }
-                break;
+        int id = view.getId();
+        if (id == R.id.btn_confirm) {
+            if (positiveClickListener != null) {
+                String content = et_content.getText().toString().trim();
+                positiveClickListener.click(content);
+            }
+        } else if (id == R.id.btn_cancel) {
+            if (negativeClickListener != null) {
+                negativeClickListener.click();
+            }
         }
     }
 
