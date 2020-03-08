@@ -19,6 +19,7 @@ public class MediaActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
         ButterKnife.bind(this);
+
     }
 
     @OnClick({R.id.btn_start,R.id.btn_stop,R.id.btn_start_loop,R.id.btn_stop_loop})
@@ -26,6 +27,7 @@ public class MediaActivity extends BaseActivity {
         switch (view.getId()){
             case R.id.btn_start:
                 AudioUtil.getInstance().playSound(this,R.raw.sarilang);
+                test();
                 break;
             case R.id.btn_stop:
                 AudioUtil.getInstance().stopSound();
@@ -37,5 +39,10 @@ public class MediaActivity extends BaseActivity {
                 AudioUtil.getInstance().stopSound(true);
                 break;
         }
+    }
+
+    private String s;
+    private void test(){
+        System.out.println(s.equals("any string"));
     }
 }

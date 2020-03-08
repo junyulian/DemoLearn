@@ -4,7 +4,7 @@ import android.app.Application;
 import android.os.Handler;
 
 import com.jun.utils.common.AppConfig;
-
+import com.jun.utils.common.CrashHandler;
 
 
 public class App extends Application {
@@ -20,7 +20,7 @@ public class App extends Application {
         mainThreadId = android.os.Process.myPid();//主线程id
         mHandler = new Handler();//运行在主线程
         AppConfig.getInstance().init(app);//初始化app的全局配置
-
+        CrashHandler.getInstance().init(this);//崩溃日志
     }
 
     /**
