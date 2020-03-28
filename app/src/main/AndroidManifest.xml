@@ -24,6 +24,8 @@
                 android:theme="@style/DialogStyle"/>
         <activity android:name=".activity.DialogEnterActivity"/>
         <activity android:name=".activity.MediaActivity"/>
+        <activity android:name=".activity.AndroidGroupViewActivity"/>
+        <activity android:name=".activity.CoordinatorActivity"/>
     </application>
 
 </manifest>

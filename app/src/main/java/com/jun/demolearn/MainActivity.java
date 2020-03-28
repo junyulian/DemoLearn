@@ -6,6 +6,7 @@ import android.Manifest;
 import android.os.Bundle;
 import android.view.View;
 
+import com.jun.demolearn.activity.AndroidGroupViewActivity;
 import com.jun.demolearn.activity.DialogEnterActivity;
 import com.jun.demolearn.activity.MediaActivity;
 import com.jun.demolearn.base.BaseActivity;
@@ -30,7 +31,7 @@ public class MainActivity extends BaseActivity {
         getPermissions();
     }
 
-    @OnClick({R.id.btn_dialog,R.id.btn_media})
+    @OnClick({R.id.btn_dialog,R.id.btn_media,R.id.btn_view})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_dialog:
@@ -38,6 +39,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_media:
                 moveTo(MediaActivity.class);
+                break;
+            case R.id.btn_view:
+                moveTo(AndroidGroupViewActivity.class);
                 break;
             default:
                 break;
